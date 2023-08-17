@@ -6,6 +6,7 @@ import com.spotify.oauth2.pojo.Error;
 import com.spotify.oauth2.pojo.Playlist;
 
 import com.spotify.oauth2.utils.DataLoader;
+import com.spotify.oauth2.utils.TestRetryAnalyzer;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -59,7 +60,7 @@ public class PlaylistTests extends BaseTest {
     @TmsLink("12345")
     @Issue("1234567")
     @Description("Should be able to create Playlist with correct name, description and public status")
-    @Test(description = " Should be able to create Playlist")
+    @Test(description = " Should be able to create Playlist", retryAnalyzer = TestRetryAnalyzer.class)
     void shouldBeAvailableToCreatePlaylist() {
         // Create playlist object
         Playlist requestPlaylist = playlistBuilder(generateName(),
