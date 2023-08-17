@@ -76,3 +76,9 @@ jobs:
           name: allure-report
           path: target/allure-report/
           retention-days: 30
+
+      - name: Test Summary
+        uses: test-summary/action@v2
+        with:
+          paths: "target/allure-results/*.json"
+        if: steps.test.outcome == 'success'
