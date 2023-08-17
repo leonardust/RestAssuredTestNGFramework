@@ -86,4 +86,4 @@ jobs:
       - name: Test Report Summary
         if: steps.test.outcome == 'success'
         run: |
-          echo "- [Allure Report](https://leonardust.github.io/RestAssuredTestNGFramework/)" >> $GITHUB_STEP_SUMMARY
+          echo "[Click here to open Allure Report!!!](https://leonardust.github.io/RestAssuredTestNGFramework/)" >> $GITHUB_STEP_SUMMARY
