@@ -17,6 +17,10 @@ on:
   schedule:
     - cron: '0 0 * * *'
 
+env:
+  API_BASE_URI: "https://api.spotify.com"
+  ACCOUNT_BASE_URI: "https://accounts.spotify.com"
+
 jobs:
 
   build:
@@ -35,7 +39,7 @@ jobs:
           cache: maven
 
       - name: Run tests
-        run: mvn clean test -DAPI_BASE_URI="https://api.spotify.com" -DACCOUNT_BASE_URI="https://accounts.spotify.com"
+        run: mvn clean test -DAPI_BASE_URI="${{ env.API_BASE_URI }}" -DACCOUNT_BASE_URI="${{ env.ACCOUNT_BASE_URI }}
 
       - name: Get Allure history
         uses: actions/checkout@v3
