@@ -39,7 +39,7 @@ jobs:
           cache: maven
 
       - name: Run tests
-        run: mvn clean test -DAPI_BASE_URI="${{ env.API_BASE_URI }}" -DACCOUNT_BASE_URI="${{ env.ACCOUNT_BASE_URI }}
+        run: mvn clean test -DAPI_BASE_URI="${{ env.API_BASE_URI }}" -DACCOUNT_BASE_URI="${{ env.ACCOUNT_BASE_URI }}"
 
       - name: Get Allure history
         uses: actions/checkout@v3
