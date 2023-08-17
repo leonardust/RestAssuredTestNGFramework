@@ -78,7 +78,7 @@ jobs:
           retention-days: 30
 
       - name: Test Summary
+        if: steps.test.outcome == 'success'
         uses: test-summary/action@v2
         with:
-          paths: "target/allure-results/*.json"
-        if: steps.test.outcome == 'success'
+          paths: "target/surefire-reports/TEST-TestSuite.xml"
