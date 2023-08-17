@@ -40,10 +40,11 @@ jobs:
 
       - name: Run tests
         run: mvn clean test -DAPI_BASE_URI="${{ env.API_BASE_URI }}" -DACCOUNT_BASE_URI="${{ env.ACCOUNT_BASE_URI }}"
+        id: test
 
       - name: Get Allure history
         uses: actions/checkout@v3
-        if: always()
+        if: steps.test.outcome == 'success'
         continue-on-error: true
         with:
           ref: gh-pages
@@ -51,7 +52,7 @@ jobs:
 
       - name: Allure Report
         uses: simple-elf/allure-report-action@master
-        if: always()
+        if: steps.test.outcome == 'success'
         id: allure-report
         with:
           allure_results: target/allure-results
@@ -61,7 +62,7 @@ jobs:
           keep_reports: 20
 
       - name: Deploy report to Github Pages
-        if: always()
+        if: steps.test.outcome == 'success'
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -70,7 +71,7 @@ jobs:
 
       - name: Upload Allure artifacts
         uses: actions/upload-artifact@v3
-        if: always()
+        if: steps.test.outcome == 'success'
         with:
           name: allure-report
           path: target/allure-report/
