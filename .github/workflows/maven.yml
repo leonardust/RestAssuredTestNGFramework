@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Selenium Tests
+name: Rest Assured Tests
 
 on:
   workflow_dispatch:
