@@ -637,7 +637,7 @@ mvn clean test -DAPI_BASE_URI="https://api.spotify.com" -DACCOUNT_BASE_URI="http
 
 ## Github
 
-- create repository in github and execute commands in terminal
+- create repository in GitHub and execute commands in terminal
 
 ```bash
 git init
