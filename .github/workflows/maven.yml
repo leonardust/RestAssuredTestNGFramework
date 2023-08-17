@@ -82,3 +82,8 @@ jobs:
         uses: test-summary/action@v2
         with:
           paths: "target/surefire-reports/TEST-TestSuite.xml"
+
+      - name: Test Report Summary
+        if: steps.test.outcome == 'success'
+        run: |
+          echo "- [Allure Report](https://leonardust.github.io/RestAssuredTestNGFramework/)" >> $GITHUB_STEP_SUMMARY
