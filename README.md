@@ -169,7 +169,6 @@ from:
     }
 ```
 
-
 to:
 ```java
     public static Response post(Playlist requestPlaylist) {
@@ -282,7 +281,7 @@ TokenManager
         formParams.put("grant_type", "refresh_token");
         formParams.put("refresh_token", "AQDj-4M9OPmwXMeOAmpBwy56Zf0i2XNR5Kk-wqWSXtQVjW3qH83UkGqWc_nndzzRFJQoS48uh-VV2uhBOS6pOJhgMGj62rkQ76CDtX2ltLzbarRDJtx0go9zH-Lioua6qcU");
 
-        `Response response = RestResource.postAccount(formParams);`
+        Response response = RestResource.postAccount(formParams);
 
         if(response.statusCode() != 200) {
             throw new RuntimeException("ABORTED!!! Renew Token failed");
